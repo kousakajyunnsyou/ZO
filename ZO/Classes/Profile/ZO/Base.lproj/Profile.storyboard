@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="EjA-sC-E28">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="HdM-fu-aHX">
+            <objects>
+                <viewController id="Dsk-0a-TJx" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="f6S-AW-ghE">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="PcT-sr-mr8"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="46k-t0-nfq"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ErT-ZV-Mcd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1232" y="605"/>
+        </scene>
+        <!--我的-->
+        <scene sceneID="61H-vd-j1q">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="EjA-sC-E28" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="我的" image="tabMine_44x44_" selectedImage="tabSpecialMineHL_44x44_" id="yYz-M5-fyR"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="De3-dc-qYT">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Dsk-0a-TJx" kind="relationship" relationship="rootViewController" id="cng-Tf-zqp"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Nw1-Kz-Liv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="155" y="605"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="tabMine_44x44_" width="44" height="44"/>
+        <image name="tabSpecialMineHL_44x44_" width="44" height="44"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

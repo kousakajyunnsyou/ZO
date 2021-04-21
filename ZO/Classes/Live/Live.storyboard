@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xXg-0h-JDi">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="dOV-hH-boP">
+            <objects>
+                <viewController id="akY-Vy-8VZ" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Age-sk-bEv">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="BOI-AZ-wCX"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="ujK-Hz-eCQ"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qgj-fC-TYd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1251" y="-159"/>
+        </scene>
+        <!--直播-->
+        <scene sceneID="qIJ-5g-iq4">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xXg-0h-JDi" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="直播" image="tabSpecialLive_44x44_" selectedImage="tabSpecialLiveHL_44x44_" id="IX6-4a-TWe"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="qS4-JS-tt5">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="akY-Vy-8VZ" kind="relationship" relationship="rootViewController" id="lRB-0H-qDk"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="K9m-pQ-ZFk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="287" y="-159"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="tabSpecialLiveHL_44x44_" width="44" height="44"/>
+        <image name="tabSpecialLive_44x44_" width="44" height="44"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
