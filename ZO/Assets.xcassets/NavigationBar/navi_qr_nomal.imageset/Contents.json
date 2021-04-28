@@ -5,11 +5,12 @@
       "scale" : "1x"
     },
     {
-      "filename" : "blottery_anchor_history_icon_12x12_@2x.png",
+      "filename" : "Image_scan@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "Image_scan@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

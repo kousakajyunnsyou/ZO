@@ -5,11 +5,12 @@
       "scale" : "1x"
     },
     {
-      "filename" : "cm_nav_history_23x23_@2x.png",
+      "filename" : "btn_search_clicked@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "btn_search_clicked@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
