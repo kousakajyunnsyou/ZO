@@ -54,7 +54,9 @@ extension HomeViewController {
     fileprivate func setupUI() {
         //设置导航栏
         setupNavigationBar()
+        //添加小标题
         view.addSubview(homeTitles)
+        //添加子控制器
         view.addSubview(contentView)
     }
     //导航栏

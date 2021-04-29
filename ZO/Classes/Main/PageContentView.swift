@@ -9,10 +9,42 @@ import UIKit
 
 class PageContentView: UIView {
 
+    //MARK: 定义常量
+    private let ContentCellID = "ContentCellID"
+    
     //MARK: 定义属性
     
+    //子控制器
     private var childViews: [UIViewController]
+    //父控制器
     private var paraentView: UIViewController
+    //用于包容子控制器
+    private lazy var collectionView: UICollectionView = {
+        //创建layout
+        let layout = UICollectionViewFlowLayout()
+        //大小
+        layout.itemSize = self.bounds.size
+        //行间距
+        layout.minimumLineSpacing = 0
+        //item间距
+        layout.minimumInteritemSpacing = 0
+        //滚动间距: 水平
+        layout.scrollDirection = .horizontal
+        
+        let collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
+        //水平指示器：不需要
+        collectionView.showsHorizontalScrollIndicator = false
+        //分页：是
+        collectionView.isPagingEnabled = true
+        //不超出内部滚动区域
+        collectionView.bounces = false
+        //设置数据源
+        collectionView.dataSource = self
+        //注册cell
+        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: ContentCellID)
+        
+        return collectionView
+    }()
     
     /*自定义初始化方法
      *@param frame: 布局
@@ -23,10 +55,47 @@ class PageContentView: UIView {
         self.childViews = childViews
         self.paraentView = paraentView
         super.init(frame: frame)
+        
+        setupUI()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+}
+extension PageContentView: UICollectionViewDataSource {
+
+    
+    //MARK: 设置UI
+    func setupUI() {
+        //将子控制器添加到父控制器
+        for VC in childViews {
+            paraentView.addChild(VC)
+        }
+        
+        //添加collectionView,在cell中存放子控制器的View
+        addSubview(collectionView)
+        collectionView.frame = bounds
+        
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return childViews.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        //创建cell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ContentCellID, for: indexPath)
+        //为cell设置内容
+        for view in cell.contentView.subviews {
+            view.removeFromSuperview()
+        }
+        
+        let VC = childViews[indexPath.item]
+        VC.view.frame = cell.contentView.bounds
+        cell.contentView.addSubview(VC.view)
+        
+        return cell
+    }
 }
