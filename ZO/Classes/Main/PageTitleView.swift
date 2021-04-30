@@ -7,12 +7,20 @@
 
 import UIKit
 
+protocol PageTitleViewDelegate : class {
+    //更改展示的与小标题对应的内容
+    func changePageContent(selectedIndex index: Int)
+}
+
 class PageTitleView: UIView {
 
     // MARK: 定义属性
     
+    weak var delegate : PageTitleViewDelegate?
     // 标题集合
     var titles : [String]
+    // 当前选中的标题（Lable），默认为0（第一个）
+    var currentLableindex: Int = 0
     // 标题实例
     private lazy var titleLables : [UILabel] = [UILabel]()
     //滚动视图
@@ -42,9 +50,7 @@ class PageTitleView: UIView {
      *@param titles: 展示标题
      */
     init(frame: CGRect, titles: [String]) {
-        
         self.titles = titles
-        
         super.init(frame: frame)
         
         setupUI()
@@ -61,9 +67,9 @@ extension PageTitleView{
         //添加滚动视图
         addSubview(scrollView)
         scrollView.frame = bounds
-        //设置标题导航
+        //初始化标题导航
         setupTitlesLables()
-        //设置底线和滑块
+        //初始化底线和滑块
         setBottomLineAndScrollLine()
     }
     
@@ -86,11 +92,16 @@ extension PageTitleView{
             //Lable 的布局
             let lableX : CGFloat = lableW * CGFloat(index)
             lable.frame = CGRect(x: lableX, y: lableY, width: lableW, height: lableH)
+            //添加lable
             scrollView.addSubview(lable)
             titleLables.append(lable)
+            //添加手势以响应点击事件
+            let tapGes = UITapGestureRecognizer(target: self, action: #selector(self.titleLableClick(tapGes:)))
+            lable.isUserInteractionEnabled = true
+            lable.addGestureRecognizer(tapGes)
         }
     }
-    //设置底线和滑块
+    //初始化底线和滑块
     func setBottomLineAndScrollLine() {
         //添加底线
         let bottomLine = UIView()
@@ -108,5 +119,29 @@ extension PageTitleView{
         //设置底部滑块
         scrollLine.frame = CGRect(x: firtLable.frame.origin.x, y: frame.height - scrollLineH, width: scrollLineW, height: scrollLineH)
         scrollView.addSubview(scrollLine)
+    }
+}
+
+//MARK: 监听lable的点击事件
+extension PageTitleView {
+    @objc private func titleLableClick(tapGes: UITapGestureRecognizer) {
+        //获取lable的下标值
+        guard let currentLable = tapGes.view as? UILabel else { return }
+        
+        let oldLable = titleLables[currentLableindex]
+        //lable属性变更
+        currentLable.textColor = UIColor.orange
+        oldLable.textColor = UIColor.darkGray
+        //更新当前lable
+        currentLableindex = currentLable.tag
+        
+        //滑块位置变动
+        let scrollLineX = CGFloat(currentLableindex) * scrollLine.frame.width
+        UIView.animate(withDuration: 0.1) {
+            self.scrollLine.frame.origin.x = scrollLineX
+        }
+        
+        //对应的展示内容
+        self.delegate?.changePageContent(selectedIndex: currentLableindex)
     }
 }

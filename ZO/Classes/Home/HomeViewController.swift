@@ -13,24 +13,27 @@ class HomeViewController: UIViewController {
     
     //滚动标题高度
     private let KTitleViewH : CGFloat = 40
+    //小标题
+    let titles = ["推荐","游戏","娱乐","趣玩"]
     
     //滚动标题初始化
-    private lazy var homeTitles : PageTitleView = {
+    private lazy var homeTitles : PageTitleView = {[weak self] in
         let titleFrame = CGRect(x: 0, y: KStatusBarH + KNavigationH, width: KScreenW, height: KTitleViewH)
-        let titles = ["推荐","游戏","娱乐","趣玩"]
         let titleView = PageTitleView(frame: titleFrame, titles: titles)
+        titleView.delegate = self
         return titleView
     }()
     //与滚标题对应的控制器
-    private lazy var contentView : PageContentView = {
+    private lazy var contentView : PageContentView = {[weak self] in
         //布局
         let frameH: CGFloat = KScreenH - KStatusBarH - KNavigationH - KTitleViewH
         let frame = CGRect(x: 0, y: KStatusBarH + KNavigationH + KTitleViewH, width: KScreenW, height: frameH)
         
         //子控制器
         var childVCs = [UIViewController]()
-        for _ in 0..<4 {
+        for _ in 0..<titles.count {
             let vc = UIViewController()
+            //显示一个随机颜色
             vc.view.backgroundColor = UIColor(red: CGFloat(arc4random_uniform(255)), green: CGFloat(arc4random_uniform(255)), blue: CGFloat(arc4random_uniform(255)))
             childVCs.append(vc)
         }
@@ -85,4 +88,13 @@ extension HomeViewController {
         
         navigationItem.rightBarButtonItems = [historyItem,searchItem,QRcodeItem]
     }
+}
+
+// MARK: 遵循PageTitleViewDelegate协议
+extension HomeViewController: PageTitleViewDelegate {
+    
+    func changePageContent(selectedIndex index: Int) {
+        contentView.steupContentForTitleChange(currentIndex: index)
+    }
+    
 }
