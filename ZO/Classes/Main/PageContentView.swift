@@ -9,8 +9,9 @@ import UIKit
 
 class PageContentView: UIView {
 
-    //MARK: 定义常量
+    //MARK: 定义参数
     private let ContentCellID = "ContentCellID"
+    private var startOffset: CGFloat = 0
     
     //MARK: 定义属性
     
@@ -42,6 +43,7 @@ class PageContentView: UIView {
         collectionView.dataSource = self
         //注册cell
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: ContentCellID)
+        collectionView.delegate = self
         
         return collectionView
     }()
@@ -108,5 +110,31 @@ extension PageContentView {
     public func steupContentForTitleChange(currentIndex: Int) {
         let offsetX = CGFloat(currentIndex) * collectionView.frame.width
         collectionView.setContentOffset(CGPoint(x: offsetX, y: 0), animated: true)
+    }
+}
+
+//MARK: 遵循UICollectionViewDelegate
+extension PageContentView : UICollectionViewDelegate {
+    
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        startOffset = scrollView.contentOffset.x
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        // 滑动进度定义
+        var progress: CGFloat = 0
+        // 起始滑动点定义
+        var sourceTndex: CGFloat = 0
+        // 目标滑动点定义
+        var targetIndex: CGFloat = 0
+        
+        let currentOffset = scrollView.contentOffset.x
+        let scrollViewW = scrollView.bounds.width
+        if currentOffset > startOffset {// 左向滑动
+            progress = (currentOffset.truncatingRemainder(dividingBy: startOffset)) / scrollViewW
+        }else {// 右向滑动
+            
+        }
+        
     }
 }
