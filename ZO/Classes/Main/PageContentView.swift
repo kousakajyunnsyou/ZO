@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol PageContentViewDelegete: class {
+    func ChangeTitleState(contentView: PageContentView,progress: CGFloat,sourceIndex: Int,targetIndex: Int)
+}
+
 class PageContentView: UIView {
 
     //MARK: 定义参数
@@ -15,6 +19,8 @@ class PageContentView: UIView {
     
     //MARK: 定义属性
     
+    //代理
+    weak var delegete : PageContentViewDelegete?
     //子控制器
     private var childViews: [UIViewController]
     //父控制器(弱引用：两个互相作用的强引用导致无法释放)
@@ -124,17 +130,38 @@ extension PageContentView : UICollectionViewDelegate {
         // 滑动进度定义
         var progress: CGFloat = 0
         // 起始滑动点定义
-        var sourceTndex: CGFloat = 0
+        var sourceTndex: Int = 0
         // 目标滑动点定义
-        var targetIndex: CGFloat = 0
+        var targetIndex: Int = 0
         
         let currentOffset = scrollView.contentOffset.x
         let scrollViewW = scrollView.bounds.width
         if currentOffset > startOffset {// 左向滑动
-            progress = (currentOffset.truncatingRemainder(dividingBy: startOffset)) / scrollViewW
-        }else {// 右向滑动
+            progress = (currentOffset.truncatingRemainder(dividingBy: scrollViewW)) / scrollViewW
             
+            sourceTndex = Int(currentOffset / scrollViewW)
+            
+            targetIndex = sourceTndex + 1
+            if targetIndex >= childViews.count {
+                targetIndex = childViews.count - 1
+            }
+            
+            //如果滑动完成
+            if (currentOffset - startOffset) == scrollViewW {
+                progress = 1.0 // 如果不进行处理，会被置为0
+                targetIndex = sourceTndex
+            }
+        }else {// 右向滑动
+            progress = 1.0 - (currentOffset.truncatingRemainder(dividingBy: scrollViewW) / scrollViewW)
+            
+            targetIndex = Int(currentOffset / scrollViewW)
+            
+            sourceTndex = targetIndex + 1
+            if sourceTndex >= childViews.count + 1 {
+                sourceTndex = childViews.count - 1
+            }
         }
-        
+        //将progress，sourceTndex，targetIndex传递给titleView
+        delegete?.ChangeTitleState(contentView: self, progress: progress, sourceIndex: sourceTndex, targetIndex: targetIndex)
     }
 }

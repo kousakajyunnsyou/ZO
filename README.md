@@ -11,6 +11,5 @@
     Profile ： “我的"页面
     Live ： ”直播“页面
     Main： 底部视图，共用子视图
-    
-Tools : 通用方法及常量
+    Tools : 通用方法及常量
     Extension : 系统扩展

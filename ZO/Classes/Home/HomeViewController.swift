@@ -39,6 +39,7 @@ class HomeViewController: UIViewController {
         }
         
         let contentView = PageContentView(frame: frame, childViews: childVCs, paraentView: self)
+        contentView.delegete = self
         return contentView
     }()
     
@@ -97,4 +98,11 @@ extension HomeViewController: PageTitleViewDelegate {
         contentView.steupContentForTitleChange(currentIndex: index)
     }
     
+}
+
+// MARK: 遵循PageContentViewDelegete协议
+extension HomeViewController: PageContentViewDelegete{
+    func ChangeTitleState(contentView: PageContentView, progress: CGFloat, sourceIndex: Int, targetIndex: Int) {
+        homeTitles.ChangeTitleStateWithProgress(progress: progress, sourceIndex: sourceIndex, targetIndex: targetIndex)
+    }
 }

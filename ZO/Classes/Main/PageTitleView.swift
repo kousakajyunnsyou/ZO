@@ -145,3 +145,18 @@ extension PageTitleView {
         self.delegate?.changePageContent(selectedIndex: currentLableindex)
     }
 }
+
+//MARK: 对外暴露的方法
+//响应pageContentView的滑动事件
+extension PageTitleView {
+    func ChangeTitleStateWithProgress(progress: CGFloat,sourceIndex: Int,targetIndex: Int) {
+        
+        let sourceLable = titleLables[sourceIndex]
+        let tatgetLable = titleLables[targetIndex]
+        
+        // 滑块滑动逻辑
+        let moveTotalX = tatgetLable.frame.origin.x - sourceLable.frame.origin.x
+        var moveX = moveTotalX * progress
+        scrollLine.frame.origin.x  = sourceLable.frame.origin.x + moveX
+    }
+}
