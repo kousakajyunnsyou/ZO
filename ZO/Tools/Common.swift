@@ -18,3 +18,11 @@ let KNavigationH : CGFloat = 44
 let KScreenW = UIScreen.main.bounds.width
 //屏幕高度
 let KScreenH = UIScreen.main.bounds.height
+
+//MARK: PageTitleView
+
+//标题常态颜色(UIColor.darkGray)
+let KNormalColor: (CGFloat,CGFloat,CGFloat) = (85, 85, 85)
+//标题选中时颜色(UIColor.orange)
+let KSelectColor: (CGFloat,CGFloat,CGFloat) = (255, 128, 0)
+

@@ -86,7 +86,7 @@ extension PageTitleView{
             // Lable 属性
             lable.text = title
             lable.tag = index
-            lable.textColor = UIColor.darkGray
+            lable.textColor = UIColor(red: KNormalColor.0, green: KNormalColor.1, blue: KNormalColor.2)
             lable.font = UIFont.systemFont(ofSize: 16.0)
             lable.textAlignment = .center
             //Lable 的布局
@@ -113,7 +113,7 @@ extension PageTitleView{
         //获取默认显示的第一个小标题
         guard let firtLable = titleLables.first else { return }
         //第一个小标题的为橙色
-        firtLable.textColor = UIColor.orange
+        firtLable.textColor = UIColor(red: KSelectColor.0, green: KSelectColor.1, blue: KSelectColor.2)
         let scrollLineW = firtLable.frame.width
         
         //设置底部滑块
@@ -130,8 +130,9 @@ extension PageTitleView {
         
         let oldLable = titleLables[currentLableindex]
         //lable属性变更
-        currentLable.textColor = UIColor.orange
-        oldLable.textColor = UIColor.darkGray
+        currentLable.textColor = UIColor(red: KSelectColor.0, green: KSelectColor.1, blue: KSelectColor.2)
+        oldLable.textColor = UIColor(red: KNormalColor.0, green: KNormalColor.1, blue: KNormalColor.2)
+        
         //更新当前lable
         currentLableindex = currentLable.tag
         
@@ -150,13 +151,21 @@ extension PageTitleView {
 //响应pageContentView的滑动事件
 extension PageTitleView {
     func ChangeTitleStateWithProgress(progress: CGFloat,sourceIndex: Int,targetIndex: Int) {
-        
+        //确定title
         let sourceLable = titleLables[sourceIndex]
         let tatgetLable = titleLables[targetIndex]
         
         // 滑块滑动逻辑
         let moveTotalX = tatgetLable.frame.origin.x - sourceLable.frame.origin.x
-        var moveX = moveTotalX * progress
+        let moveX = moveTotalX * progress
         scrollLine.frame.origin.x  = sourceLable.frame.origin.x + moveX
+        
+        //颜色的渐变
+        let colorChange = (KSelectColor.0 - KNormalColor.0, KSelectColor.1 - KNormalColor.1, KSelectColor.2 - KNormalColor.2)
+        
+        sourceLable.textColor = UIColor(red: KSelectColor.0 - colorChange.0 * progress, green: KSelectColor.1 - colorChange.1 * progress, blue: KSelectColor.2 - colorChange.2 * progress)
+        tatgetLable.textColor = UIColor(red: KNormalColor.0 + colorChange.0 * progress, green: KNormalColor.1 + colorChange.1 * progress, blue: KNormalColor.2 + colorChange.2 * progress)
+        
+        currentLableindex = targetIndex
     }
 }

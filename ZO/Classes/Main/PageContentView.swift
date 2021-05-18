@@ -21,6 +21,8 @@ class PageContentView: UIView {
     
     //代理
     weak var delegete : PageContentViewDelegete?
+    //是否滚动事件(UICollectionViewDelegate)禁用代理
+    var isForbidDelegate : Bool = false
     //子控制器
     private var childViews: [UIViewController]
     //父控制器(弱引用：两个互相作用的强引用导致无法释放)
@@ -114,6 +116,9 @@ extension PageContentView: UICollectionViewDataSource {
 extension PageContentView {
     //响应小标题的点击事件
     public func steupContentForTitleChange(currentIndex: Int) {
+        //点击title时，不期望响应滚动事件
+        isForbidDelegate = true
+        
         let offsetX = CGFloat(currentIndex) * collectionView.frame.width
         collectionView.setContentOffset(CGPoint(x: offsetX, y: 0), animated: true)
     }
@@ -124,9 +129,14 @@ extension PageContentView : UICollectionViewDelegate {
     
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         startOffset = scrollView.contentOffset.x
+        //主动滑动时，启用
+        isForbidDelegate = false
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        //判断是否响应
+        if isForbidDelegate { return }
+        
         // 滑动进度定义
         var progress: CGFloat = 0
         // 起始滑动点定义
