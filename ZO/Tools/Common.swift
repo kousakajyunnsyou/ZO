@@ -7,6 +7,7 @@
 
 import UIKit
 
+//MARK: 全局通用
 
 let statusBarManager = UIApplication.shared.windows.first?.windowScene?.statusBarManager
 

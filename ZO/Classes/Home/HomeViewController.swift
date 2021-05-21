@@ -31,7 +31,8 @@ class HomeViewController: UIViewController {
         
         //子控制器
         var childVCs = [UIViewController]()
-        for _ in 0..<titles.count {
+        childVCs.append(RecommendViewConteollerViewController())
+        for _ in 0..<3 {
             let vc = UIViewController()
             //显示一个随机颜色
             vc.view.backgroundColor = UIColor(red: CGFloat(arc4random_uniform(255)), green: CGFloat(arc4random_uniform(255)), blue: CGFloat(arc4random_uniform(255)))

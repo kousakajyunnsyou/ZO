@@ -113,6 +113,7 @@ extension PageContentView: UICollectionViewDataSource {
 }
 
 //MARK: 暴露给外部的方法
+//响应标题点击事件
 extension PageContentView {
     //响应小标题的点击事件
     public func steupContentForTitleChange(currentIndex: Int) {
