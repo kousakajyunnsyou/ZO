@@ -29,15 +29,15 @@ class RecommendViewConteollerViewController: UIViewController {
     private lazy var collectinView: UICollectionView = {[unowned self] in
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: KItemWidth, height: KItemHeight)
-        layout.minimumLineSpacing = 2
+        layout.minimumLineSpacing = 1
         layout.minimumInteritemSpacing = KItemMargin
         layout.sectionInset = UIEdgeInsets(top: 0, left: KItemMargin, bottom: 0, right: KItemMargin)
         layout.headerReferenceSize = CGSize(width: KScreenW, height: KHeaderHeight)
         
         let collectionView = UICollectionView(frame: self.view.bounds, collectionViewLayout: layout)
         collectionView.backgroundColor = UIColor.white
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: KNormalCell)
-        collectionView.register(UICollectionReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: KHeaderID)
+        collectionView.register(UINib(nibName: "CollectionNormalCell", bundle: nil), forCellWithReuseIdentifier: KNormalCell)
+        collectionView.register(UINib(nibName: "CollectionHeaderView", bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: KHeaderID)
         collectionView.dataSource = self
         //宽高自适应
         collectionView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
@@ -77,7 +77,6 @@ extension RecommendViewConteollerViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: KNormalCell, for: indexPath)
-        cell.backgroundColor = UIColor.green
         return cell
     }
     //Header定义
@@ -85,8 +84,6 @@ extension RecommendViewConteollerViewController: UICollectionViewDataSource {
         
         //去除headerView
         let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: KHeaderID, for: indexPath)
-        
-        headerView.backgroundColor = UIColor(red: CGFloat(arc4random_uniform(255)), green: CGFloat(arc4random_uniform(255)), blue: CGFloat(arc4random_uniform(255)))
         
         return headerView
     }
