@@ -14,12 +14,15 @@ import UIKit
 let KItemMargin: CGFloat = 10.0
 //组件宽度,高度
 let KItemWidth: CGFloat = (KScreenW - KItemMargin * 3) / 2
-let KItemHeight: CGFloat = KItemWidth * 3 / 4
+let KNormalItemHeight: CGFloat = KItemWidth * 3 / 4
+let KSpecialItemHeight: CGFloat = KItemWidth * 4 / 3
+
 //组头高度
 let KHeaderHeight: CGFloat = 50
 
 
 let KNormalCell = "KNormalCell"
+let KSpecialCell = "KSpecialCell"
 let KHeaderID = "KHeader"
 
 
@@ -28,7 +31,6 @@ class RecommendViewConteollerViewController: UIViewController {
     //MARK: 属性
     private lazy var collectinView: UICollectionView = {[unowned self] in
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: KItemWidth, height: KItemHeight)
         layout.minimumLineSpacing = 1
         layout.minimumInteritemSpacing = KItemMargin
         layout.sectionInset = UIEdgeInsets(top: 0, left: KItemMargin, bottom: 0, right: KItemMargin)
@@ -37,8 +39,10 @@ class RecommendViewConteollerViewController: UIViewController {
         let collectionView = UICollectionView(frame: self.view.bounds, collectionViewLayout: layout)
         collectionView.backgroundColor = UIColor.white
         collectionView.register(UINib(nibName: "CollectionNormalCell", bundle: nil), forCellWithReuseIdentifier: KNormalCell)
+        collectionView.register(UINib(nibName: "CollectionSpecialCell", bundle: nil), forCellWithReuseIdentifier: KSpecialCell)
         collectionView.register(UINib(nibName: "CollectionHeaderView", bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: KHeaderID)
         collectionView.dataSource = self
+        collectionView.delegate = self
         //宽高自适应
         collectionView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         return collectionView
@@ -60,8 +64,8 @@ extension RecommendViewConteollerViewController {
     }
 }
 
-//MARK: UICollectionViewDataSource
-extension RecommendViewConteollerViewController: UICollectionViewDataSource {
+//MARK: UICollectionViewDataSource, UICollectionViewDelegate
+extension RecommendViewConteollerViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return  12
@@ -73,18 +77,34 @@ extension RecommendViewConteollerViewController: UICollectionViewDataSource {
         }
         return 4
     }
+    
     //Item定义
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: KNormalCell, for: indexPath)
+        var cell : UICollectionViewCell
+        if indexPath.section == 1 {
+            cell = collectionView.dequeueReusableCell(withReuseIdentifier: KSpecialCell, for: indexPath)
+            return cell
+        }
+        cell = collectionView.dequeueReusableCell(withReuseIdentifier: KNormalCell, for: indexPath)
         return cell
     }
+    
+    //Item Size变化
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        if indexPath.section == 1 {
+            return CGSize(width: KItemWidth, height: KSpecialItemHeight)
+        }
+        return CGSize(width: KItemWidth, height: KNormalItemHeight)
+    }
+    
     //Header定义
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         
-        //去除headerView
+        //取出headerView
         let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: KHeaderID, for: indexPath)
         
         return headerView
     }
+
 }

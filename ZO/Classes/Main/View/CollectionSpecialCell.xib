@@ -35,7 +35,7 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="live_cell_default_phone" translatesAutoresizingMaskIntoConstraints="NO" id="8wB-aV-2BS">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="live_cell_default_phone" translatesAutoresizingMaskIntoConstraints="NO" id="8wB-aV-2BS">
                         <rect key="frame" x="0.0" y="0.0" width="184" height="186"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -45,15 +45,21 @@
                         </userDefinedRuntimeAttributes>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6666在线" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3lP-8A-U0D">
-                        <rect key="frame" x="122" y="2" width="60" height="20"/>
+                        <rect key="frame" x="122" y="3" width="60" height="20"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="60" id="4mm-uc-m3T"/>
-                            <constraint firstAttribute="height" constant="20" id="sfC-rf-xKP"/>
+                            <constraint firstAttribute="height" constant="20" id="E5a-6h-o8X"/>
+                            <constraint firstAttribute="width" constant="60" id="bSX-eJ-sgt"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="5"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                        </userDefinedRuntimeAttributes>
                     </label>
                 </subviews>
             </view>
@@ -63,9 +69,9 @@
                 <constraint firstItem="8wB-aV-2BS" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="0aW-9x-2kx"/>
                 <constraint firstItem="32g-eH-g5v" firstAttribute="leading" secondItem="sRu-Pn-ARJ" secondAttribute="leading" id="6DK-YK-rqR"/>
                 <constraint firstAttribute="bottom" secondItem="32g-eH-g5v" secondAttribute="bottom" constant="5" id="6c4-M7-J45"/>
-                <constraint firstItem="3lP-8A-U0D" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="2" id="9i8-bj-Xpm"/>
+                <constraint firstItem="3lP-8A-U0D" firstAttribute="top" secondItem="8wB-aV-2BS" secondAttribute="top" constant="3" id="HY0-mF-7jF"/>
                 <constraint firstItem="32g-eH-g5v" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="UPj-ed-z1J"/>
-                <constraint firstAttribute="trailing" secondItem="3lP-8A-U0D" secondAttribute="trailing" constant="2" id="de0-8V-PF8"/>
+                <constraint firstItem="3lP-8A-U0D" firstAttribute="trailing" secondItem="8wB-aV-2BS" secondAttribute="trailing" constant="-2" id="hNm-tq-4w0"/>
                 <constraint firstItem="32g-eH-g5v" firstAttribute="top" secondItem="sRu-Pn-ARJ" secondAttribute="bottom" constant="5" id="hyp-kd-W4n"/>
                 <constraint firstAttribute="trailing" secondItem="8wB-aV-2BS" secondAttribute="trailing" id="srh-XV-wc5"/>
                 <constraint firstItem="8wB-aV-2BS" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="z6P-bk-Zxe"/>
