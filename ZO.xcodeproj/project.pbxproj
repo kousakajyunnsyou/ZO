@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,6 +15,7 @@
 		E468F4EF2658A15D000641B3 /* CollectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E468F4ED2658A15D000641B3 /* CollectionHeaderView.xib */; };
 		E47BAA5E265BA6AE0054A90B /* CollectionSpecialCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47BAA5C265BA6AE0054A90B /* CollectionSpecialCell.swift */; };
 		E47BAA5F265BA6AE0054A90B /* CollectionSpecialCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E47BAA5D265BA6AE0054A90B /* CollectionSpecialCell.xib */; };
+		E4818DD0265E47590074C491 /* NetWorkTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4818DCF265E47590074C491 /* NetWorkTools.swift */; };
 		E49CFBC426550234001AAC5E /* RecommendViewConteollerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49CFBC326550234001AAC5E /* RecommendViewConteollerViewController.swift */; };
 		E4DA7E53265B76FE00650AEC /* CollectionNormalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DA7E51265B76FE00650AEC /* CollectionNormalCell.swift */; };
 		E4DA7E54265B76FE00650AEC /* CollectionNormalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4DA7E52265B76FE00650AEC /* CollectionNormalCell.xib */; };
@@ -47,6 +48,7 @@
 		E468F4ED2658A15D000641B3 /* CollectionHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionHeaderView.xib; sourceTree = "<group>"; };
 		E47BAA5C265BA6AE0054A90B /* CollectionSpecialCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionSpecialCell.swift; sourceTree = "<group>"; };
 		E47BAA5D265BA6AE0054A90B /* CollectionSpecialCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionSpecialCell.xib; sourceTree = "<group>"; };
+		E4818DCF265E47590074C491 /* NetWorkTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetWorkTools.swift; sourceTree = "<group>"; };
 		E49CFBC326550234001AAC5E /* RecommendViewConteollerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendViewConteollerViewController.swift; sourceTree = "<group>"; };
 		E4DA7E51265B76FE00650AEC /* CollectionNormalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionNormalCell.swift; sourceTree = "<group>"; };
 		E4DA7E52265B76FE00650AEC /* CollectionNormalCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionNormalCell.xib; sourceTree = "<group>"; };
@@ -88,7 +90,6 @@
 				03719577D6FFC8D013CF0AFB /* Pods-ZO.debug.xcconfig */,
 				490EBEA7784C7AC8F38C910E /* Pods-ZO.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -178,6 +179,7 @@
 			children = (
 				E4E93ABF2630143A00C7E877 /* Extension */,
 				E4E93B292632B89400C7E877 /* Common.swift */,
+				E4818DCF265E47590074C491 /* NetWorkTools.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -243,6 +245,7 @@
 				E4E4676B262E7A61002AEC19 /* Sources */,
 				E4E4676C262E7A61002AEC19 /* Frameworks */,
 				E4E4676D262E7A61002AEC19 /* Resources */,
+				D8016E3A5A9094DB99A1A84A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -329,6 +332,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		D8016E3A5A9094DB99A1A84A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ZO/Pods-ZO-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ZO/Pods-ZO-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ZO/Pods-ZO-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -344,6 +364,7 @@
 				E47BAA5E265BA6AE0054A90B /* CollectionSpecialCell.swift in Sources */,
 				E4E93B2A2632B89400C7E877 /* Common.swift in Sources */,
 				E4E46775262E7A61002AEC19 /* SceneDelegate.swift in Sources */,
+				E4818DD0265E47590074C491 /* NetWorkTools.swift in Sources */,
 				E468F4EE2658A15D000641B3 /* CollectionHeaderView.swift in Sources */,
 				E4DA7E53265B76FE00650AEC /* CollectionNormalCell.swift in Sources */,
 				E4E93AB9262FFE7C00C7E877 /* MainViewController.swift in Sources */,
