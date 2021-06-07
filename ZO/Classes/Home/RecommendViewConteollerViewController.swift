@@ -29,6 +29,7 @@ let KHeaderID = "KHeader"
 class RecommendViewConteollerViewController: UIViewController {
     
     //MARK: 属性
+    private lazy var recommendVM : RecommendViewModel = RecommendViewModel()
     private lazy var collectinView: UICollectionView = {[unowned self] in
         let layout = UICollectionViewFlowLayout()
         layout.minimumLineSpacing = 1
@@ -52,6 +53,8 @@ class RecommendViewConteollerViewController: UIViewController {
         super.viewDidLoad()
 
         setupUI()
+        
+        loadData()
     }
     
 }
@@ -106,5 +109,11 @@ extension RecommendViewConteollerViewController: UICollectionViewDataSource, UIC
         
         return headerView
     }
-
+}
+//MARK: 请求数据
+extension RecommendViewConteollerViewController {
+    
+    private func loadData() {
+        recommendVM.requsetData()
+    }
 }
