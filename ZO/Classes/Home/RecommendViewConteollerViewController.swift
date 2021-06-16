@@ -64,6 +64,7 @@ extension RecommendViewConteollerViewController {
     //初始化视图
     func setupUI()  {
         view.addSubview(collectinView)
+        
     }
 }
 
@@ -71,14 +72,12 @@ extension RecommendViewConteollerViewController {
 extension RecommendViewConteollerViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return  12
+        return  self.recommendVM.anchorGroup.count
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if section == 0 {
-            return 8
-        }
-        return 4
+        let group = recommendVM.anchorGroup[section]
+        return group.anchors.count
     }
     
     //Item定义
@@ -89,8 +88,9 @@ extension RecommendViewConteollerViewController: UICollectionViewDataSource, UIC
             cell = collectionView.dequeueReusableCell(withReuseIdentifier: KSpecialCell, for: indexPath)
             return cell
         }
-        cell = collectionView.dequeueReusableCell(withReuseIdentifier: KNormalCell, for: indexPath)
-        return cell
+        let cellOfNormal = collectionView.dequeueReusableCell(withReuseIdentifier: KNormalCell, for: indexPath) as! CollectionNormalCell
+        cellOfNormal.anchorInfo = recommendVM.anchorGroup[indexPath.section].anchors[indexPath.item]
+        return cellOfNormal
     }
     
     //Item Size变化
@@ -105,7 +105,9 @@ extension RecommendViewConteollerViewController: UICollectionViewDataSource, UIC
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         
         //取出headerView
-        let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: KHeaderID, for: indexPath)
+        let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: KHeaderID, for: indexPath) as! CollectionHeaderView
+
+        headerView.group = recommendVM.anchorGroup[indexPath.section]
         
         return headerView
     }
@@ -114,6 +116,8 @@ extension RecommendViewConteollerViewController: UICollectionViewDataSource, UIC
 extension RecommendViewConteollerViewController {
     
     private func loadData() {
-        recommendVM.requsetData()
+        recommendVM.requsetData {
+            self.collectinView.reloadData()
+        }
     }
 }

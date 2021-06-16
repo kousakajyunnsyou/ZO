@@ -5,7 +5,8 @@ use_frameworks!
  
 target 'ZO' do
   
-  pod 'Alamofire'
+  pod 'Alamofire', '~> 5.4.3'
+  pod 'Kingfisher', '~> 6.3.0'
 
   # Pods for ZO
 

@@ -7,6 +7,7 @@
 
 import UIKit
 
+@objcMembers
 class SingleAnchor: NSObject {
 
     //房间ID
@@ -21,13 +22,17 @@ class SingleAnchor: NSObject {
     var nickname : String = ""
     //观看人数
     var online : Int = 0
+    //所在地点
+    var anchor_city : String = ""
     
-    init(dict : [String:NSObject]) {
+    
+    init(dict : [String:Any]) {
         super.init()
         setValuesForKeys(dict)
     }
     
-    override class func setValue(_ value: Any?, forUndefinedKey key: String) {
-        //无事发生
+    override func setValue(_ value: Any?, forUndefinedKey key: String) {
+      //无事发生
     }
+    
 }

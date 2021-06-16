@@ -15,6 +15,7 @@
 		E468F4EF2658A15D000641B3 /* CollectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E468F4ED2658A15D000641B3 /* CollectionHeaderView.xib */; };
 		E47BAA5E265BA6AE0054A90B /* CollectionSpecialCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47BAA5C265BA6AE0054A90B /* CollectionSpecialCell.swift */; };
 		E47BAA5F265BA6AE0054A90B /* CollectionSpecialCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E47BAA5D265BA6AE0054A90B /* CollectionSpecialCell.xib */; };
+		E47ECB05267991D300304F30 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47ECB04267991D300304F30 /* Log.swift */; };
 		E4818DD0265E47590074C491 /* NetWorkTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4818DCF265E47590074C491 /* NetWorkTools.swift */; };
 		E49CFBC426550234001AAC5E /* RecommendViewConteollerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49CFBC326550234001AAC5E /* RecommendViewConteollerViewController.swift */; };
 		E4C62C59266E06BC0071396C /* NSDate-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C62C58266E06BC0071396C /* NSDate-Extension.swift */; };
@@ -52,6 +53,7 @@
 		E468F4ED2658A15D000641B3 /* CollectionHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionHeaderView.xib; sourceTree = "<group>"; };
 		E47BAA5C265BA6AE0054A90B /* CollectionSpecialCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionSpecialCell.swift; sourceTree = "<group>"; };
 		E47BAA5D265BA6AE0054A90B /* CollectionSpecialCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionSpecialCell.xib; sourceTree = "<group>"; };
+		E47ECB04267991D300304F30 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		E4818DCF265E47590074C491 /* NetWorkTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetWorkTools.swift; sourceTree = "<group>"; };
 		E49CFBC326550234001AAC5E /* RecommendViewConteollerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendViewConteollerViewController.swift; sourceTree = "<group>"; };
 		E4C62C58266E06BC0071396C /* NSDate-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSDate-Extension.swift"; sourceTree = "<group>"; };
@@ -206,6 +208,7 @@
 				E4E93ABF2630143A00C7E877 /* Extension */,
 				E4E93B292632B89400C7E877 /* Common.swift */,
 				E4818DCF265E47590074C491 /* NetWorkTools.swift */,
+				E47ECB04267991D300304F30 /* Log.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -392,6 +395,7 @@
 				E4E46773262E7A61002AEC19 /* AppDelegate.swift in Sources */,
 				E47BAA5E265BA6AE0054A90B /* CollectionSpecialCell.swift in Sources */,
 				E4E93B2A2632B89400C7E877 /* Common.swift in Sources */,
+				E47ECB05267991D300304F30 /* Log.swift in Sources */,
 				E4E46775262E7A61002AEC19 /* SceneDelegate.swift in Sources */,
 				E4818DD0265E47590074C491 /* NetWorkTools.swift in Sources */,
 				E4C62C59266E06BC0071396C /* NSDate-Extension.swift in Sources */,
