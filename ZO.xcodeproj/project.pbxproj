@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0B4D639A877EE21D58C3F9A5 /* Pods_ZO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9FBA078E03A54028C2049C6 /* Pods_ZO.framework */; };
+		A6486AFE27BB868900BAD543 /* RecommandCycleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6486AFD27BB868900BAD543 /* RecommandCycleView.swift */; };
+		A6486B0127BB86F200BAD543 /* RecommandCycleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6486B0027BB86F200BAD543 /* RecommandCycleView.xib */; };
 		E409A9EB2639348A00167B98 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = E409A9EA2639348A00167B98 /* README.md */; };
 		E409A9EE263938E200167B98 /* PageContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E409A9ED263938E200167B98 /* PageContentView.swift */; };
 		E409A9F126393D1500167B98 /* UIColor-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E409A9F026393D1500167B98 /* UIColor-Extension.swift */; };
@@ -45,6 +47,8 @@
 /* Begin PBXFileReference section */
 		03719577D6FFC8D013CF0AFB /* Pods-ZO.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZO.debug.xcconfig"; path = "Target Support Files/Pods-ZO/Pods-ZO.debug.xcconfig"; sourceTree = "<group>"; };
 		490EBEA7784C7AC8F38C910E /* Pods-ZO.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZO.release.xcconfig"; path = "Target Support Files/Pods-ZO/Pods-ZO.release.xcconfig"; sourceTree = "<group>"; };
+		A6486AFD27BB868900BAD543 /* RecommandCycleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommandCycleView.swift; sourceTree = "<group>"; };
+		A6486B0027BB86F200BAD543 /* RecommandCycleView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecommandCycleView.xib; sourceTree = "<group>"; };
 		C9FBA078E03A54028C2049C6 /* Pods_ZO.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ZO.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E409A9EA2639348A00167B98 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		E409A9ED263938E200167B98 /* PageContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageContentView.swift; sourceTree = "<group>"; };
@@ -109,6 +113,15 @@
 				C9FBA078E03A54028C2049C6 /* Pods_ZO.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A6486AFF27BB86B400BAD543 /* RecommandCycleView */ = {
+			isa = PBXGroup;
+			children = (
+				A6486AFD27BB868900BAD543 /* RecommandCycleView.swift */,
+				A6486B0027BB86F200BAD543 /* RecommandCycleView.xib */,
+			);
+			path = RecommandCycleView;
 			sourceTree = "<group>";
 		};
 		E4C62C5B266E0DB70071396C /* Model */ = {
@@ -191,6 +204,7 @@
 		E4E4678B262E7A83002AEC19 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				A6486AFF27BB86B400BAD543 /* RecommandCycleView */,
 				E4E93AA1262FF9E400C7E877 /* Home.storyboard */,
 				E4E93ABC263001D000C7E877 /* HomeViewController.swift */,
 				E49CFBC326550234001AAC5E /* RecommendViewConteollerViewController.swift */,
@@ -329,6 +343,7 @@
 				E47BAA5F265BA6AE0054A90B /* CollectionSpecialCell.xib in Resources */,
 				E4DA7E54265B76FE00650AEC /* CollectionNormalCell.xib in Resources */,
 				E4E4677F262E7A62002AEC19 /* Assets.xcassets in Resources */,
+				A6486B0127BB86F200BAD543 /* RecommandCycleView.xib in Resources */,
 				E4E93AA5262FFA2C00C7E877 /* Live.storyboard in Resources */,
 				E4E93AA2262FF9E400C7E877 /* Home.storyboard in Resources */,
 				E468F4EF2658A15D000641B3 /* CollectionHeaderView.xib in Resources */,
@@ -397,6 +412,7 @@
 				E4E93B2A2632B89400C7E877 /* Common.swift in Sources */,
 				E47ECB05267991D300304F30 /* Log.swift in Sources */,
 				E4E46775262E7A61002AEC19 /* SceneDelegate.swift in Sources */,
+				A6486AFE27BB868900BAD543 /* RecommandCycleView.swift in Sources */,
 				E4818DD0265E47590074C491 /* NetWorkTools.swift in Sources */,
 				E4C62C59266E06BC0071396C /* NSDate-Extension.swift in Sources */,
 				E468F4EE2658A15D000641B3 /* CollectionHeaderView.swift in Sources */,
@@ -548,15 +564,18 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8SGCASK6DU;
 				INFOPLIST_FILE = ZO/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = fan.ZO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -569,15 +588,18 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8SGCASK6DU;
 				INFOPLIST_FILE = ZO/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = fan.ZO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

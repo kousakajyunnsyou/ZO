@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol PageContentViewDelegete: class {
+protocol PageContentViewDelegete: AnyObject {
     func ChangeTitleState(contentView: PageContentView,progress: CGFloat,sourceIndex: Int,targetIndex: Int)
 }
 

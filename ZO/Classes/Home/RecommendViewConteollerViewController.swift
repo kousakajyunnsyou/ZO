@@ -12,10 +12,13 @@ import UIKit
 
 //组件间距
 let KItemMargin: CGFloat = 10.0
-//组件宽度,高度
+//主播展示组件宽度,高度
 let KItemWidth: CGFloat = (KScreenW - KItemMargin * 3) / 2
 let KNormalItemHeight: CGFloat = KItemWidth * 3 / 4
 let KSpecialItemHeight: CGFloat = KItemWidth * 4 / 3
+//无限轮播组件宽高
+let KCycleViewH: CGFloat = KScreenW * 3 / 8
+
 
 //组头高度
 let KHeaderHeight: CGFloat = 50
@@ -30,6 +33,7 @@ class RecommendViewConteollerViewController: UIViewController {
     
     //MARK: 属性
     private lazy var recommendVM : RecommendViewModel = RecommendViewModel()
+    //主播展示
     private lazy var collectinView: UICollectionView = {[unowned self] in
         let layout = UICollectionViewFlowLayout()
         layout.minimumLineSpacing = 1
@@ -48,6 +52,12 @@ class RecommendViewConteollerViewController: UIViewController {
         collectionView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         return collectionView
     }()
+    //无限轮播
+    private lazy var cycleView: RecommandCycleView = {
+        let cycleView = RecommandCycleView.recomandCycle()
+        cycleView.frame = CGRect(x: 0, y: -KCycleViewH, width: KScreenW, height: KCycleViewH)
+        return cycleView
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,6 +75,9 @@ extension RecommendViewConteollerViewController {
     func setupUI()  {
         view.addSubview(collectinView)
         
+        //添加无限轮播
+        collectinView.addSubview(cycleView)
+        collectinView.contentInset = UIEdgeInsets(top: KCycleViewH, left: 0, bottom: 0, right: 0)
     }
 }
 
