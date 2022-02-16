@@ -6,6 +6,7 @@
 //  推荐页上方的无限轮播
 
 import UIKit
+import CoreMedia
 
 let KCycleCellID = "KCycleCellID"
 
@@ -15,10 +16,21 @@ class RecommandCycleView: UIView {
     
     @IBOutlet weak var cycleView: UICollectionView!
     @IBOutlet weak var pageControl: UIPageControl!
+    var cycleModels : [CycleModel]? {
+        didSet {
+            cycleView.reloadData()
+            pageControl.numberOfPages = cycleModels?.count ?? 0
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.cycleView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: KCycleCellID)
+        cycleView.register(UINib(nibName: "CyclelCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: KCycleCellID)
+    }
+    
+    override func layoutSubviews() {
+        let cycleLayout = cycleView.collectionViewLayout as! UICollectionViewFlowLayout
+        cycleLayout.itemSize = cycleView.bounds.size
     }
 
 }
@@ -33,12 +45,12 @@ extension RecommandCycleView {
 // MARK: - 遵守UICollectionView的数据源协议
 extension RecommandCycleView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 6
+        return cycleModels?.count ?? 0
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: KCycleCellID, for: indexPath)
-        cell.backgroundColor = UIColor.randomColor()
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: KCycleCellID, for: indexPath) as! CycleCollectionViewCell
+        cell.cycleRoom = self.cycleModels?[indexPath.item]
         return cell
     }
 }

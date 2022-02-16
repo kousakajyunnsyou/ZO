@@ -10,6 +10,9 @@
 		0B4D639A877EE21D58C3F9A5 /* Pods_ZO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9FBA078E03A54028C2049C6 /* Pods_ZO.framework */; };
 		A6486AFE27BB868900BAD543 /* RecommandCycleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6486AFD27BB868900BAD543 /* RecommandCycleView.swift */; };
 		A6486B0127BB86F200BAD543 /* RecommandCycleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6486B0027BB86F200BAD543 /* RecommandCycleView.xib */; };
+		A6A9D5DB27BCEAEB00D5ED3E /* CycleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A9D5DA27BCEAEB00D5ED3E /* CycleModel.swift */; };
+		A6A9D5DE27BD133A00D5ED3E /* CycleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A9D5DC27BD133A00D5ED3E /* CycleCollectionViewCell.swift */; };
+		A6A9D5DF27BD133A00D5ED3E /* CyclelCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6A9D5DD27BD133A00D5ED3E /* CyclelCollectionViewCell.xib */; };
 		E409A9EB2639348A00167B98 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = E409A9EA2639348A00167B98 /* README.md */; };
 		E409A9EE263938E200167B98 /* PageContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E409A9ED263938E200167B98 /* PageContentView.swift */; };
 		E409A9F126393D1500167B98 /* UIColor-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E409A9F026393D1500167B98 /* UIColor-Extension.swift */; };
@@ -49,6 +52,9 @@
 		490EBEA7784C7AC8F38C910E /* Pods-ZO.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZO.release.xcconfig"; path = "Target Support Files/Pods-ZO/Pods-ZO.release.xcconfig"; sourceTree = "<group>"; };
 		A6486AFD27BB868900BAD543 /* RecommandCycleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommandCycleView.swift; sourceTree = "<group>"; };
 		A6486B0027BB86F200BAD543 /* RecommandCycleView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecommandCycleView.xib; sourceTree = "<group>"; };
+		A6A9D5DA27BCEAEB00D5ED3E /* CycleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CycleModel.swift; sourceTree = "<group>"; };
+		A6A9D5DC27BD133A00D5ED3E /* CycleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CycleCollectionViewCell.swift; sourceTree = "<group>"; };
+		A6A9D5DD27BD133A00D5ED3E /* CyclelCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CyclelCollectionViewCell.xib; sourceTree = "<group>"; };
 		C9FBA078E03A54028C2049C6 /* Pods_ZO.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ZO.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E409A9EA2639348A00167B98 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		E409A9ED263938E200167B98 /* PageContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageContentView.swift; sourceTree = "<group>"; };
@@ -120,6 +126,8 @@
 			children = (
 				A6486AFD27BB868900BAD543 /* RecommandCycleView.swift */,
 				A6486B0027BB86F200BAD543 /* RecommandCycleView.xib */,
+				A6A9D5DC27BD133A00D5ED3E /* CycleCollectionViewCell.swift */,
+				A6A9D5DD27BD133A00D5ED3E /* CyclelCollectionViewCell.xib */,
 			);
 			path = RecommandCycleView;
 			sourceTree = "<group>";
@@ -265,6 +273,7 @@
 		E4E93ABB2630019100C7E877 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A6A9D5DA27BCEAEB00D5ED3E /* CycleModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -346,6 +355,7 @@
 				A6486B0127BB86F200BAD543 /* RecommandCycleView.xib in Resources */,
 				E4E93AA5262FFA2C00C7E877 /* Live.storyboard in Resources */,
 				E4E93AA2262FF9E400C7E877 /* Home.storyboard in Resources */,
+				A6A9D5DF27BD133A00D5ED3E /* CyclelCollectionViewCell.xib in Resources */,
 				E468F4EF2658A15D000641B3 /* CollectionHeaderView.xib in Resources */,
 				E4E93AB1262FFCEB00C7E877 /* Profile.storyboard in Resources */,
 				E409A9EB2639348A00167B98 /* README.md in Resources */,
@@ -419,10 +429,12 @@
 				E4DA7E53265B76FE00650AEC /* CollectionNormalCell.swift in Sources */,
 				E4E93AB9262FFE7C00C7E877 /* MainViewController.swift in Sources */,
 				E4E93ABD263001D000C7E877 /* HomeViewController.swift in Sources */,
+				A6A9D5DE27BD133A00D5ED3E /* CycleCollectionViewCell.swift in Sources */,
 				E49CFBC426550234001AAC5E /* RecommendViewConteollerViewController.swift in Sources */,
 				E4E93AC12630147F00C7E877 /* UIBarButtonItem-Extension.swift in Sources */,
 				E409A9F126393D1500167B98 /* UIColor-Extension.swift in Sources */,
 				E4C62C61266E13540071396C /* SingleAnchor.swift in Sources */,
+				A6A9D5DB27BCEAEB00D5ED3E /* CycleModel.swift in Sources */,
 				E4C62C5D266E0DF30071396C /* AnchorGroup.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
