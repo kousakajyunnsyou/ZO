@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20018.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -16,24 +17,25 @@
                 <rect key="frame" x="0.0" y="0.0" width="340" height="155"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PwL-UK-9kl">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PwL-UK-9kl">
                         <rect key="frame" x="0.0" y="0.0" width="340" height="155"/>
                     </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mfa-Bw-CYP">
                         <rect key="frame" x="0.0" y="125" width="340" height="30"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="轮播房间标题轮播房间标题" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0z3-A7-qVk">
-                                <rect key="frame" x="15" y="7" width="80" height="16"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="轮播房间标题轮播房间标题" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0z3-A7-qVk">
+                                <rect key="frame" x="15" y="3" width="159.5" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" systemColor="systemBackgroundColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="0.6260671713917525" green="0.6260671713917525" blue="0.6260671713917525" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstAttribute="bottom" secondItem="0z3-A7-qVk" secondAttribute="bottom" constant="3" id="CfK-rx-rTI"/>
                             <constraint firstAttribute="height" constant="30" id="GV5-3v-wP7"/>
-                            <constraint firstItem="0z3-A7-qVk" firstAttribute="leading" secondItem="mfa-Bw-CYP" secondAttribute="leading" constant="15" id="Kcm-oZ-Osg"/>
                             <constraint firstItem="0z3-A7-qVk" firstAttribute="centerY" secondItem="mfa-Bw-CYP" secondAttribute="centerY" id="fFj-lq-XrS"/>
+                            <constraint firstItem="0z3-A7-qVk" firstAttribute="leading" secondItem="mfa-Bw-CYP" secondAttribute="leading" constant="15" id="i9p-hx-68A"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -56,4 +58,9 @@
             <point key="canvasLocation" x="131.8840579710145" y="83.370535714285708"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
