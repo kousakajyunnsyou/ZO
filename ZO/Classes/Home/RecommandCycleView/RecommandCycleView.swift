@@ -16,13 +16,24 @@ class RecommandCycleView: UIView {
     
     @IBOutlet weak var cycleView: UICollectionView!
     @IBOutlet weak var pageControl: UIPageControl!
+    var cycleTimer : Timer?
+    
     var cycleModels : [CycleModel]? {
         didSet {
             cycleView.reloadData()
             pageControl.numberOfPages = cycleModels?.count ?? 0
             
-            let indexPath = IndexPath(item: (cycleModels?.count ?? 0) * 10, section: 0)
-            cycleView.scrollToItem(at: indexPath, at: .left, animated: false)
+            //设置初始位置（* 10 ：防止左滑无显示）
+//            layoutIfNeeded()
+//            let indexPath = IndexPath(item: (cycleModels?.count ?? 0) * 10, section: 0)
+//            cycleView.scrollToItem(at: indexPath, at: .left, animated: false)
+            
+            let offSetX = CGFloat((cycleModels?.count ?? 0) * 10) * cycleView.bounds.width
+            cycleView.setContentOffset(CGPoint(x: offSetX, y: 0), animated: false)
+            
+            //添加定时滚动
+//            removeTimer()
+//            addTimer()
         }
     }
     
@@ -32,13 +43,14 @@ class RecommandCycleView: UIView {
     }
     
     override func layoutSubviews() {
+        //设置轮播布局与大小
         let cycleLayout = cycleView.collectionViewLayout as! UICollectionViewFlowLayout
         cycleLayout.itemSize = cycleView.bounds.size
     }
 
 }
 
-//MARK: - 外部初始化方法
+//MARK: - 对外部暴露的初始化方法
 extension RecommandCycleView {
     class func recomandCycle() -> RecommandCycleView {
         return Bundle.main.loadNibNamed("RecommandCycleView", owner: nil, options: nil)?.first as! RecommandCycleView
@@ -67,3 +79,24 @@ extension RecommandCycleView: UICollectionViewDelegate {
         pageControl.currentPage = Int(offsetX / scrollView.bounds.width) % (cycleModels?.count ?? 1)
     }
 }
+
+//MARK: - 对定时器的操作方法
+extension RecommandCycleView {
+    fileprivate func addTimer() {
+        cycleTimer = Timer(timeInterval: 3.0, target: self, selector: #selector(scrollToNext), userInfo: nil, repeats: true)
+        RunLoop.main.add(cycleTimer!, forMode: .common)
+    }
+    
+    fileprivate func removeTimer() {
+        cycleTimer?.invalidate() //从运行循环中去除
+        cycleTimer = nil
+    }
+    
+    @objc fileprivate func scrollToNext() {
+        let currentOffsetX = cycleView.contentOffset.x
+        let offSetX = currentOffsetX + cycleView.bounds.width
+        cycleView.setContentOffset(CGPoint(x: offSetX, y: 0), animated: true)
+    }
+}
+
+
