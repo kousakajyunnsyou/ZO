@@ -39,6 +39,7 @@ class RecommandCycleView: UIView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        autoresizingMask = []
         cycleView.register(UINib(nibName: "CyclelCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: KCycleCellID)
     }
     
@@ -77,6 +78,14 @@ extension RecommandCycleView: UICollectionViewDelegate {
         let offsetX = scrollView.contentOffset.x + scrollView.bounds.width * 0.5
         
         pageControl.currentPage = Int(offsetX / scrollView.bounds.width) % (cycleModels?.count ?? 1)
+    }
+    
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        removeTimer()
+    }
+    
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        addTimer()
     }
 }
 

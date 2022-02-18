@@ -18,7 +18,8 @@ let KNormalItemHeight: CGFloat = KItemWidth * 3 / 4
 let KSpecialItemHeight: CGFloat = KItemWidth * 4 / 3
 //无限轮播组件宽高
 let KCycleViewH: CGFloat = KScreenW * 3 / 8
-
+//游戏推荐组件宽高
+let KGameViewH: CGFloat = 90.0
 
 //组头高度
 let KHeaderHeight: CGFloat = 50
@@ -55,8 +56,14 @@ class RecommendViewConteollerViewController: UIViewController {
     //无限轮播
     private lazy var cycleView: RecommandCycleView = {
         let cycleView = RecommandCycleView.recomandCycle()
-        cycleView.frame = CGRect(x: 0, y: -KCycleViewH, width: KScreenW, height: KCycleViewH)
+        cycleView.frame = CGRect(x: 0, y: -(KCycleViewH + KGameViewH), width: KScreenW, height: KCycleViewH)
         return cycleView
+    }()
+    //游戏推荐
+    private lazy var gameView: RecommandGameView = {
+        let view = RecommandGameView.recommandGameView()
+        view.frame = CGRect(x: 0, y: -KGameViewH, width: KScreenW, height: KGameViewH)
+        return view
     }()
     
     override func viewDidLoad() {
@@ -77,7 +84,10 @@ extension RecommendViewConteollerViewController {
         
         //添加无限轮播
         collectinView.addSubview(cycleView)
-        collectinView.contentInset = UIEdgeInsets(top: KCycleViewH, left: 0, bottom: 0, right: 0)
+        collectinView.contentInset = UIEdgeInsets(top: KCycleViewH + KGameViewH, left: 0, bottom: 0, right: 0)
+        
+        //添加游戏推荐
+        collectinView.addSubview(gameView)
     }
 }
 
@@ -130,7 +140,19 @@ extension RecommendViewConteollerViewController {
     
     private func loadData() {
         recommendVM.requsetData {
+            //展示主播数据
             self.collectinView.reloadData()
+            
+            //将游戏分组传递给RecommandGameView
+            var group = self.recommendVM.anchorGroup
+            group.removeFirst() //移除前两组
+            group.removeFirst()
+            group.append({ () -> AnchorGroup in
+                let anchorGroup = AnchorGroup()
+                anchorGroup.tag_name = "更多"
+                return anchorGroup
+            }())
+            self.gameView.anchorGroups = group
         }
         
         recommendVM.requestCycleData {
