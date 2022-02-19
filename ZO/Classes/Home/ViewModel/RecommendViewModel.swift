@@ -77,7 +77,7 @@ extension RecommendViewModel {
             guard let dataArray = resultDict["data"] as? [[String : Any]] else {return}
             
             for dic in dataArray {
-                let group = AnchorGroup(dict: dic)
+                let group = AnchorGroup(dic: dic)
                 self.anchorGroup.append(group)
             }
             
