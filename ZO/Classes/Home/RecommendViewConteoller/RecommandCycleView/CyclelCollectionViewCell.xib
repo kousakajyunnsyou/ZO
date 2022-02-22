@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20036.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20018.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="CycleCollectionViewCell" customModule="ZO" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="340" height="155"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="340" height="155"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PwL-UK-9kl">
+                        <rect key="frame" x="0.0" y="0.0" width="340" height="155"/>
+                    </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mfa-Bw-CYP">
+                        <rect key="frame" x="0.0" y="125" width="340" height="30"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="轮播房间标题轮播房间标题" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0z3-A7-qVk">
+                                <rect key="frame" x="15" y="3" width="159.5" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" systemColor="systemBackgroundColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.6260671713917525" green="0.6260671713917525" blue="0.6260671713917525" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="0z3-A7-qVk" secondAttribute="bottom" constant="3" id="CfK-rx-rTI"/>
+                            <constraint firstAttribute="height" constant="30" id="GV5-3v-wP7"/>
+                            <constraint firstItem="0z3-A7-qVk" firstAttribute="centerY" secondItem="mfa-Bw-CYP" secondAttribute="centerY" id="fFj-lq-XrS"/>
+                            <constraint firstItem="0z3-A7-qVk" firstAttribute="leading" secondItem="mfa-Bw-CYP" secondAttribute="leading" constant="15" id="i9p-hx-68A"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="mfa-Bw-CYP" secondAttribute="trailing" id="5NQ-ZX-DfP"/>
+                <constraint firstAttribute="bottom" secondItem="mfa-Bw-CYP" secondAttribute="bottom" id="JtS-1k-aYh"/>
+                <constraint firstItem="PwL-UK-9kl" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="WFn-Bp-sHn"/>
+                <constraint firstAttribute="bottom" secondItem="PwL-UK-9kl" secondAttribute="bottom" id="ZYU-Gu-wv6"/>
+                <constraint firstItem="mfa-Bw-CYP" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="deB-EV-GJE"/>
+                <constraint firstItem="PwL-UK-9kl" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="g4q-Zx-L7s"/>
+                <constraint firstAttribute="trailing" secondItem="PwL-UK-9kl" secondAttribute="trailing" id="t3v-DS-h0k"/>
+            </constraints>
+            <size key="customSize" width="340" height="155"/>
+            <connections>
+                <outlet property="cycleTitle" destination="0z3-A7-qVk" id="zt7-P3-9r0"/>
+                <outlet property="image" destination="PwL-UK-9kl" id="1BW-f8-WUf"/>
+            </connections>
+            <point key="canvasLocation" x="131.8840579710145" y="83.370535714285708"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

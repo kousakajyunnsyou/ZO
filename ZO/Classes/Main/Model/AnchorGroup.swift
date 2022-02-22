@@ -7,13 +7,8 @@
 
 import UIKit
 
-@objcMembers
-class AnchorGroup: NSObject {
-
-    //分组的名字
-    var tag_name : String = ""
-    //分组的图标
-    var icon_url : String = ""
+class AnchorGroup: BaseGameModel {
+    
     var icon_name : String = "home_header_normal"
     
     //分组的房间信息
@@ -27,18 +22,4 @@ class AnchorGroup: NSObject {
     }
     //主播信息
     var anchors : [SingleAnchor] = [SingleAnchor]()
-    
-    override init() {
-        
-    }
-    
-    init(dict : [String:Any]) {
-        super.init()
-        
-        setValuesForKeys(dict)
-    }
-    
-    override func setValue(_ value: Any?, forUndefinedKey key: String) {
-      //无事发生
-    }
 }

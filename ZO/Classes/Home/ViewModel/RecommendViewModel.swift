@@ -7,16 +7,18 @@
 
 import UIKit
 
-class RecommendViewModel{
+class RecommendViewModel: BaseAnchorViewModel{
     //分组信息
     //热门
     private lazy var hotAnchorGroup : AnchorGroup = AnchorGroup()
     private lazy var beautyAnchorGroup : AnchorGroup = AnchorGroup()
-    lazy var anchorGroup : [AnchorGroup] = [AnchorGroup]()
+    //无限轮播数据
+    lazy var cycleDatas : [CycleModel] = [CycleModel]()
 }
 
 //MARK: 发送网络请求
 extension RecommendViewModel {
+    //请求主播展示数据
     func requsetData(finishCallback : @escaping () -> ()) {
         //共同参数定义
         let parameters = ["limit" : "4","offset" : "0", "time" : NSDate.getCurrentDate() ]
@@ -66,24 +68,29 @@ extension RecommendViewModel {
 
         //http://capi.douyucdn.cn/api/v1/getHotCate?limit=4&offset=0&time=1623052788
         disGroup.enter()
-        NetWorkTools.requestForData(method: .GET, url: "http://capi.douyucdn.cn/api/v1/getHotCate", paras: parameters) { (resp) in
-            
-            Log.D("\(resp)")
-            guard let resultDict = resp as? [String : Any] else {return}
-            
-            guard let dataArray = resultDict["data"] as? [[String : Any]] else {return}
-            
-            for dic in dataArray {
-                let group = AnchorGroup(dict: dic)
-                self.anchorGroup.append(group)
-            }
-            
+        loadAnchorData(url: "http://capi.douyucdn.cn/api/v1/getHotCate", paras: parameters, finishCallback: {
             disGroup.leave()
-        }
+        })
         
         disGroup.notify(queue: DispatchQueue.main) {
             self.anchorGroup.insert(self.beautyAnchorGroup, at: 0)
             self.anchorGroup.insert(self.hotAnchorGroup, at: 0)
+            finishCallback()
+        }
+    }
+    
+    //请求无限轮播数据
+    func requestCycleData(finishCallback: @escaping () -> ()) {
+        NetWorkTools.requestForData(method: .GET, url: "http://www.douyutv.com/api/v1/slide/6", paras: ["version" : "2.300"]) { resp in
+
+            guard let resultDict = resp as? [String : NSObject] else { return }
+            
+            guard let dataArray = resultDict["data"] as? [[String : NSObject]] else { return }
+            
+            for data in dataArray {
+                self.cycleDatas.append(CycleModel(dic: data))
+            }
+            
             finishCallback()
         }
     }

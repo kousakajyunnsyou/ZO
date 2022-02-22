@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol PageTitleViewDelegate : class {
+protocol PageTitleViewDelegate : AnyObject {
     //更改展示的与小标题对应的内容
     func changePageContent(selectedIndex index: Int)
 }
