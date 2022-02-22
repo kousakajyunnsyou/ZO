@@ -26,7 +26,7 @@ extension BaseAnchorViewModel {
             
             self.anchorGroup = self.removeEmpty(anchorGroups: self.anchorGroup)
             
-            finishCallback()
+            finishCallback()	
         }
     }
     

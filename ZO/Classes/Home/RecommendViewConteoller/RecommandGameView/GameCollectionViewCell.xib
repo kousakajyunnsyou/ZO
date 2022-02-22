@@ -16,9 +16,10 @@
                 <rect key="frame" x="0.0" y="0.0" width="80" height="90"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="需要标题" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q7a-Rg-iP5">
-                        <rect key="frame" x="11.5" y="60" width="57.5" height="20"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="需要标题0000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q7a-Rg-iP5">
+                        <rect key="frame" x="-5" y="60" width="90" height="20"/>
                         <constraints>
+                            <constraint firstAttribute="width" constant="90" id="L0S-Sh-Nfv"/>
                             <constraint firstAttribute="height" constant="20" id="kDs-xC-qJG"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -50,6 +51,7 @@
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
+                <constraint firstItem="q7a-Rg-iP5" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="OR3-Pb-Jld"/>
                 <constraint firstAttribute="bottom" secondItem="q7a-Rg-iP5" secondAttribute="bottom" constant="10" id="TeO-Ku-EE0"/>
                 <constraint firstItem="yNY-a8-PCx" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="ZdH-FJ-1fg"/>
                 <constraint firstAttribute="trailing" secondItem="Bol-3s-eXR" secondAttribute="trailing" id="bvp-Mh-bBQ"/>
