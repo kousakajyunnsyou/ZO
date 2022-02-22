@@ -7,12 +7,11 @@
 
 import UIKit
 
-class RecommendViewModel{
+class RecommendViewModel: BaseAnchorViewModel{
     //分组信息
     //热门
     private lazy var hotAnchorGroup : AnchorGroup = AnchorGroup()
     private lazy var beautyAnchorGroup : AnchorGroup = AnchorGroup()
-    lazy var anchorGroup : [AnchorGroup] = [AnchorGroup]()
     //无限轮播数据
     lazy var cycleDatas : [CycleModel] = [CycleModel]()
 }
@@ -69,20 +68,9 @@ extension RecommendViewModel {
 
         //http://capi.douyucdn.cn/api/v1/getHotCate?limit=4&offset=0&time=1623052788
         disGroup.enter()
-        NetWorkTools.requestForData(method: .GET, url: "http://capi.douyucdn.cn/api/v1/getHotCate", paras: parameters) { (resp) in
-            
-            Log.D("\(resp)")
-            guard let resultDict = resp as? [String : Any] else {return}
-            
-            guard let dataArray = resultDict["data"] as? [[String : Any]] else {return}
-            
-            for dic in dataArray {
-                let group = AnchorGroup(dic: dic)
-                self.anchorGroup.append(group)
-            }
-            
+        loadAnchorData(url: "http://capi.douyucdn.cn/api/v1/getHotCate", paras: parameters, finishCallback: {
             disGroup.leave()
-        }
+        })
         
         disGroup.notify(queue: DispatchQueue.main) {
             self.anchorGroup.insert(self.beautyAnchorGroup, at: 0)

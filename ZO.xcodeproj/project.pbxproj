@@ -18,6 +18,10 @@
 		A64B387D27C0D754002C0089 /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64B387C27C0D754002C0089 /* GameViewModel.swift */; };
 		A64B387F27C0D879002C0089 /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64B387E27C0D879002C0089 /* GameModel.swift */; };
 		A64B388127C0D9EC002C0089 /* BaseGameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64B388027C0D9EC002C0089 /* BaseGameModel.swift */; };
+		A688BE4427C38FBD00E26C35 /* AmuseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A688BE4327C38FBD00E26C35 /* AmuseViewController.swift */; };
+		A688BE4627C38FF700E26C35 /* BaseAnchorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A688BE4527C38FF600E26C35 /* BaseAnchorViewModel.swift */; };
+		A688BE4827C3A46400E26C35 /* BaseAnchorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A688BE4727C3A46400E26C35 /* BaseAnchorViewController.swift */; };
+		A688BE4A27C3B1BB00E26C35 /* AmuseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A688BE4927C3B1BB00E26C35 /* AmuseViewModel.swift */; };
 		A6A9D5DB27BCEAEB00D5ED3E /* CycleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A9D5DA27BCEAEB00D5ED3E /* CycleModel.swift */; };
 		A6A9D5DE27BD133A00D5ED3E /* CycleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A9D5DC27BD133A00D5ED3E /* CycleCollectionViewCell.swift */; };
 		A6A9D5DF27BD133A00D5ED3E /* CyclelCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6A9D5DD27BD133A00D5ED3E /* CyclelCollectionViewCell.xib */; };
@@ -68,6 +72,10 @@
 		A64B387C27C0D754002C0089 /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
 		A64B387E27C0D879002C0089 /* GameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModel.swift; sourceTree = "<group>"; };
 		A64B388027C0D9EC002C0089 /* BaseGameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseGameModel.swift; sourceTree = "<group>"; };
+		A688BE4327C38FBD00E26C35 /* AmuseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmuseViewController.swift; sourceTree = "<group>"; };
+		A688BE4527C38FF600E26C35 /* BaseAnchorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAnchorViewModel.swift; sourceTree = "<group>"; };
+		A688BE4727C3A46400E26C35 /* BaseAnchorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAnchorViewController.swift; sourceTree = "<group>"; };
+		A688BE4927C3B1BB00E26C35 /* AmuseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmuseViewModel.swift; sourceTree = "<group>"; };
 		A6A9D5DA27BCEAEB00D5ED3E /* CycleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CycleModel.swift; sourceTree = "<group>"; };
 		A6A9D5DC27BD133A00D5ED3E /* CycleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CycleCollectionViewCell.swift; sourceTree = "<group>"; };
 		A6A9D5DD27BD133A00D5ED3E /* CyclelCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CyclelCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -179,6 +187,14 @@
 			path = GameViewController;
 			sourceTree = "<group>";
 		};
+		A688BE4227C38F8800E26C35 /* AmuseViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A688BE4327C38FBD00E26C35 /* AmuseViewController.swift */,
+			);
+			path = AmuseViewController;
+			sourceTree = "<group>";
+		};
 		E4C62C5B266E0DB70071396C /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -193,7 +209,9 @@
 			isa = PBXGroup;
 			children = (
 				E4D1F392265F98E0003CBF90 /* RecommendViewModel.swift */,
+				A688BE4927C3B1BB00E26C35 /* AmuseViewModel.swift */,
 				A64B387C27C0D754002C0089 /* GameViewModel.swift */,
+				A688BE4527C38FF600E26C35 /* BaseAnchorViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -263,8 +281,10 @@
 			children = (
 				E4E93AA1262FF9E400C7E877 /* Home.storyboard */,
 				E4E93ABC263001D000C7E877 /* HomeViewController.swift */,
+				A688BE4727C3A46400E26C35 /* BaseAnchorViewController.swift */,
 				A64B387827C0CA9B002C0089 /* RecommendViewConteoller */,
 				A64B387B27C0CB2A002C0089 /* GameViewController */,
+				A688BE4227C38F8800E26C35 /* AmuseViewController */,
 				E4D1F391265F94B3003CBF90 /* ViewModel */,
 				E4E93ABB2630019100C7E877 /* Model */,
 			);
@@ -474,6 +494,7 @@
 				E4E93B2A2632B89400C7E877 /* Common.swift in Sources */,
 				E47ECB05267991D300304F30 /* Log.swift in Sources */,
 				E4E46775262E7A61002AEC19 /* SceneDelegate.swift in Sources */,
+				A688BE4427C38FBD00E26C35 /* AmuseViewController.swift in Sources */,
 				A6486AFE27BB868900BAD543 /* RecommandCycleView.swift in Sources */,
 				A64B387A27C0CB1A002C0089 /* GameViewController.swift in Sources */,
 				A64B387F27C0D879002C0089 /* GameModel.swift in Sources */,
@@ -481,8 +502,11 @@
 				E4C62C59266E06BC0071396C /* NSDate-Extension.swift in Sources */,
 				E468F4EE2658A15D000641B3 /* CollectionHeaderView.swift in Sources */,
 				E4DA7E53265B76FE00650AEC /* CollectionNormalCell.swift in Sources */,
+				A688BE4A27C3B1BB00E26C35 /* AmuseViewModel.swift in Sources */,
 				E4E93AB9262FFE7C00C7E877 /* MainViewController.swift in Sources */,
+				A688BE4827C3A46400E26C35 /* BaseAnchorViewController.swift in Sources */,
 				E4E93ABD263001D000C7E877 /* HomeViewController.swift in Sources */,
+				A688BE4627C38FF700E26C35 /* BaseAnchorViewModel.swift in Sources */,
 				A64B387D27C0D754002C0089 /* GameViewModel.swift in Sources */,
 				A6A9D5DE27BD133A00D5ED3E /* CycleCollectionViewCell.swift in Sources */,
 				E49CFBC426550234001AAC5E /* RecommendViewConteoller.swift in Sources */,

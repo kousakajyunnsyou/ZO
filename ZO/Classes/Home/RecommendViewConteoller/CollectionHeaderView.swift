@@ -9,9 +9,7 @@ import UIKit
 
 class CollectionHeaderView: UICollectionReusableView {
     
-    
-    
-    
+
     @IBOutlet weak var groupIocn: UIImageView!
     @IBOutlet weak var groupLable: UILabel!
     @IBOutlet weak var moreButton: UIButton!
@@ -22,11 +20,11 @@ class CollectionHeaderView: UICollectionReusableView {
             groupLable.text = group?.tag_name
         }
     }
-    
+}
 
-//    override func awakeFromNib() {
-//        super.awakeFromNib()
-//        // Initialization code
-//    }
-//
+//MARK: - 返回一个自身的实例化
+extension CollectionHeaderView {
+    class func collectionHeaderView() -> CollectionHeaderView {
+        return Bundle.main.loadNibNamed("CollectionHeaderView", owner: nil, options: nil)?.first as! CollectionHeaderView
+    }
 }

@@ -33,7 +33,8 @@ class HomeViewController: UIViewController {
         var childVCs = [UIViewController]()
         childVCs.append(RecommendViewConteoller())
         childVCs.append(GameViewController())
-        for _ in 0..<2 {
+        childVCs.append(AmuseViewController())
+        for _ in 0..<1 {
             let vc = UIViewController()
             //显示一个随机颜色
             vc.view.backgroundColor = UIColor.randomColor()
