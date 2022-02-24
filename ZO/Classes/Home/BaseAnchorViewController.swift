@@ -69,7 +69,7 @@ extension BaseAnchorViewController {
 }
 
 
-//MARK: UICollectionViewDataSource, UICollectionViewDelegate
+//MARK: UICollectionViewDataSource
 extension BaseAnchorViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -102,5 +102,28 @@ extension BaseAnchorViewController: UICollectionViewDataSource, UICollectionView
     //Item Size
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: KItemWidth, height: KNormalItemHeight)
+    }
+}
+
+
+//MARK: -
+extension BaseAnchorViewController: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let anchor = baseAnchorVM.anchorGroup[indexPath.section].anchors[indexPath.item]
+        
+        anchor.isVertical == 0 ? pushNormalRoomVC() : modalShowRoomVC()
+    }
+    
+    func pushNormalRoomVC() {
+        let normalRoom = NormalRoomViewController()
+        
+        navigationController?.pushViewController(normalRoom, animated: true)
+    }
+    
+    func modalShowRoomVC() {
+        let showRoom = ShowRoomViewController()
+        
+        present(showRoom, animated: true)
     }
 }

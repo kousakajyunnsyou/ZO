@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="TDI-4W-E1h">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20036.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="TDI-4W-E1h">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20018.1"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -15,8 +14,8 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="QD0-ZC-rUn">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="barTintColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
+                        <color key="barTintColor" systemColor="systemOrangeColor"/>
                     </tabBar>
                     <connections>
                         <segue destination="Kts-tX-rBy" kind="relationship" relationship="viewControllers" id="svJ-Pw-pgY"/>
@@ -33,7 +32,7 @@
         <scene sceneID="GSu-Lx-Air">
             <objects>
                 <viewControllerPlaceholder storyboardName="Home" id="Kts-tX-rBy" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="vod-9x-xvB"/>
+                    <tabBarItem key="tabBarItem" title="Item" image="btn_home_normal" selectedImage="btn_home_selected" id="vod-9x-xvB"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sia-Zg-Aku" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -43,7 +42,7 @@
         <scene sceneID="2oO-BT-yKP">
             <objects>
                 <viewControllerPlaceholder storyboardName="Live" id="qjW-wg-yvD" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="4hu-6n-2Da"/>
+                    <tabBarItem key="tabBarItem" title="Item" image="btn_column_normal" selectedImage="btn_column_selected" id="4hu-6n-2Da"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sby-gF-uSb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -53,7 +52,7 @@
         <scene sceneID="wA8-Ly-HxY">
             <objects>
                 <viewControllerPlaceholder storyboardName="Follow" id="LG1-oY-TZZ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="Rn8-za-bCb"/>
+                    <tabBarItem key="tabBarItem" title="Item" image="btn_live_normal" selectedImage="btn_live_selected" id="Rn8-za-bCb"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yAq-v3-Ilc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -63,7 +62,7 @@
         <scene sceneID="ftt-wj-8x2">
             <objects>
                 <viewControllerPlaceholder storyboardName="Profile" id="KZD-YH-XQR" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="ycz-uJ-yYS"/>
+                    <tabBarItem key="tabBarItem" title="Item" image="btn_user_normal" selectedImage="btn_user_selected" id="ycz-uJ-yYS"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GHZ-55-Uo6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -71,8 +70,19 @@
         </scene>
     </scenes>
     <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        <image name="btn_column_normal" width="24" height="24"/>
+        <image name="btn_column_selected" width="24" height="24"/>
+        <image name="btn_home_normal" width="24" height="24"/>
+        <image name="btn_home_selected" width="24" height="24"/>
+        <image name="btn_live_normal" width="30" height="24"/>
+        <image name="btn_live_selected" width="30" height="24"/>
+        <image name="btn_user_normal" width="24" height="24"/>
+        <image name="btn_user_selected" width="24" height="24"/>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="tertiarySystemGroupedBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
