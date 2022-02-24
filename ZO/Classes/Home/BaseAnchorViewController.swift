@@ -19,7 +19,7 @@ let KHeaderHeight: CGFloat = 50
 let KNormalCell = "KNormalCell"
 let KHeaderID = "KHeader"
 
-class BaseAnchorViewController: UIViewController {
+class BaseAnchorViewController: BaseViewController {
     
     var baseAnchorVM : BaseAnchorViewModel!
     //主播展示
@@ -53,8 +53,12 @@ class BaseAnchorViewController: UIViewController {
 //MARK: 视图
 extension BaseAnchorViewController {
     //初始化视图
-    @objc func setupUI() {
+    override func setupUI() {
+        self.contentView = collectinView
+        
         view.addSubview(collectinView)
+        
+        super.setupUI()
     }
 }
 

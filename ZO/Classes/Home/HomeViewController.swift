@@ -34,12 +34,7 @@ class HomeViewController: UIViewController {
         childVCs.append(RecommendViewConteoller())
         childVCs.append(GameViewController())
         childVCs.append(AmuseViewController())
-        for _ in 0..<1 {
-            let vc = UIViewController()
-            //显示一个随机颜色
-            vc.view.backgroundColor = UIColor.randomColor()
-            childVCs.append(vc)
-        }
+        childVCs.append(FunnyViewController())
         
         let contentView = PageContentView(frame: frame, childViews: childVCs, paraentView: self)
         contentView.delegete = self
