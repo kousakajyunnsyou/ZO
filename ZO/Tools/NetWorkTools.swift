@@ -16,7 +16,7 @@ enum RequestMethod {
 class NetWorkTools: NSObject {
     public typealias finishCallback = (_ resp : AnyObject) -> ()
 
-    class func requestForData(method : RequestMethod, url : String ,paras: [String : String]? = nil, callback:@escaping finishCallback) {
+    class func requestForData(method : RequestMethod, url : String ,paras: [String : Any]? = nil, callback:@escaping finishCallback) {
        
         let httpMethod = method == RequestMethod.GET ? HTTPMethod.get : HTTPMethod.post
         

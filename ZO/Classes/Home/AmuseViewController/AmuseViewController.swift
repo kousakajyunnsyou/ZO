@@ -39,13 +39,15 @@ extension AmuseViewController {
     override func loadData() {
         baseAnchorVM = self.amuseVM
         amuseVM.requsetData {
-            
+
             self.collectinView.reloadData()
             
             //设置头部展示数据
             var groups = self.amuseVM.anchorGroup
             groups.removeFirst()
             self.amuseMenu.groups = groups
+            
+            self.stopLoading()
         }
     }
 }
