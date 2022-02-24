@@ -79,6 +79,7 @@ extension RecommendViewConteoller {
         baseAnchorVM = recommendVM
         
         recommendVM.requsetData {
+            
             //展示主播数据
             self.collectinView.reloadData()
             
@@ -92,6 +93,8 @@ extension RecommendViewConteoller {
                 return anchorGroup
             }())
             self.gameView.anchorGroups = group
+            
+            self.stopLoading()
         }
         
         recommendVM.requestCycleData {

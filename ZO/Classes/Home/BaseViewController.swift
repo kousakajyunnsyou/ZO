@@ -9,21 +9,42 @@ import UIKit
 
 class BaseViewController: UIViewController {
 
+    var contentView: UIView?
+    
+    fileprivate lazy var animImage: UIImageView = {[unowned self] in
+        let image = UIImageView(image: UIImage(named: "img_loading_1"))
+        image.animationImages = [UIImage(named: "img_loading_1")!, UIImage(named: "img_loading_2")!]
+        image.center = self.view.center
+        image.animationDuration = 0.3
+        image.animationRepeatCount = LONG_MAX
+        image.autoresizingMask = [.flexibleTopMargin, .flexibleBottomMargin]
+        
+        return image
+    }()
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        setupUI()
         // Do any additional setup after loading the view.
     }
     
+}
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+extension BaseViewController {
+    @objc func setupUI() {
+        contentView?.isHidden = true
+        
+        self.view.addSubview(animImage)
+        
+        animImage.startAnimating()
     }
-    */
-
+    
+    //停止加载动画
+    func stopLoading() {
+        animImage.stopAnimating()
+        
+        animImage.isHidden = true
+        
+        contentView?.isHidden = false
+    }
 }

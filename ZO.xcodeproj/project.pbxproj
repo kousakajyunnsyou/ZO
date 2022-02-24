@@ -26,6 +26,9 @@
 		A688BE5627C4BCB700E26C35 /* AmuseMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A688BE5527C4BCB700E26C35 /* AmuseMenuView.xib */; };
 		A688BE5E27C4C2B400E26C35 /* AmuseMenuCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A688BE5C27C4C2B400E26C35 /* AmuseMenuCollectionViewCell.swift */; };
 		A688BE5F27C4C2B400E26C35 /* AmuseMenuCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A688BE5D27C4C2B400E26C35 /* AmuseMenuCollectionViewCell.xib */; };
+		A688BE6227C623EB00E26C35 /* FunnyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A688BE6127C623EB00E26C35 /* FunnyViewController.swift */; };
+		A688BE6427C6243100E26C35 /* FunnyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A688BE6327C6243100E26C35 /* FunnyViewModel.swift */; };
+		A688BE6627C72C7E00E26C35 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A688BE6527C72C7E00E26C35 /* BaseViewController.swift */; };
 		A6A9D5DB27BCEAEB00D5ED3E /* CycleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A9D5DA27BCEAEB00D5ED3E /* CycleModel.swift */; };
 		A6A9D5DE27BD133A00D5ED3E /* CycleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A9D5DC27BD133A00D5ED3E /* CycleCollectionViewCell.swift */; };
 		A6A9D5DF27BD133A00D5ED3E /* CyclelCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6A9D5DD27BD133A00D5ED3E /* CyclelCollectionViewCell.xib */; };
@@ -84,6 +87,9 @@
 		A688BE5527C4BCB700E26C35 /* AmuseMenuView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AmuseMenuView.xib; sourceTree = "<group>"; };
 		A688BE5C27C4C2B400E26C35 /* AmuseMenuCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmuseMenuCollectionViewCell.swift; sourceTree = "<group>"; };
 		A688BE5D27C4C2B400E26C35 /* AmuseMenuCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AmuseMenuCollectionViewCell.xib; sourceTree = "<group>"; };
+		A688BE6127C623EB00E26C35 /* FunnyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunnyViewController.swift; sourceTree = "<group>"; };
+		A688BE6327C6243100E26C35 /* FunnyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunnyViewModel.swift; sourceTree = "<group>"; };
+		A688BE6527C72C7E00E26C35 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		A6A9D5DA27BCEAEB00D5ED3E /* CycleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CycleModel.swift; sourceTree = "<group>"; };
 		A6A9D5DC27BD133A00D5ED3E /* CycleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CycleCollectionViewCell.swift; sourceTree = "<group>"; };
 		A6A9D5DD27BD133A00D5ED3E /* CyclelCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CyclelCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -215,6 +221,14 @@
 			path = AmuseMenuView;
 			sourceTree = "<group>";
 		};
+		A688BE6027C6237400E26C35 /* FunnyViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A688BE6127C623EB00E26C35 /* FunnyViewController.swift */,
+			);
+			path = FunnyViewController;
+			sourceTree = "<group>";
+		};
 		E4C62C5B266E0DB70071396C /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -231,6 +245,7 @@
 				E4D1F392265F98E0003CBF90 /* RecommendViewModel.swift */,
 				A688BE4927C3B1BB00E26C35 /* AmuseViewModel.swift */,
 				A64B387C27C0D754002C0089 /* GameViewModel.swift */,
+				A688BE6327C6243100E26C35 /* FunnyViewModel.swift */,
 				A688BE4527C38FF600E26C35 /* BaseAnchorViewModel.swift */,
 			);
 			path = ViewModel;
@@ -302,9 +317,11 @@
 				E4E93AA1262FF9E400C7E877 /* Home.storyboard */,
 				E4E93ABC263001D000C7E877 /* HomeViewController.swift */,
 				A688BE4727C3A46400E26C35 /* BaseAnchorViewController.swift */,
+				A688BE6527C72C7E00E26C35 /* BaseViewController.swift */,
 				A64B387827C0CA9B002C0089 /* RecommendViewConteoller */,
 				A64B387B27C0CB2A002C0089 /* GameViewController */,
 				A688BE4227C38F8800E26C35 /* AmuseViewController */,
+				A688BE6027C6237400E26C35 /* FunnyViewController */,
 				E4D1F391265F94B3003CBF90 /* ViewModel */,
 				E4E93ABB2630019100C7E877 /* Model */,
 			);
@@ -520,14 +537,17 @@
 				A688BE4427C38FBD00E26C35 /* AmuseViewController.swift in Sources */,
 				A6486AFE27BB868900BAD543 /* RecommandCycleView.swift in Sources */,
 				A64B387A27C0CB1A002C0089 /* GameViewController.swift in Sources */,
+				A688BE6227C623EB00E26C35 /* FunnyViewController.swift in Sources */,
 				A64B387F27C0D879002C0089 /* GameModel.swift in Sources */,
 				E4818DD0265E47590074C491 /* NetWorkTools.swift in Sources */,
 				E4C62C59266E06BC0071396C /* NSDate-Extension.swift in Sources */,
 				E468F4EE2658A15D000641B3 /* CollectionHeaderView.swift in Sources */,
 				E4DA7E53265B76FE00650AEC /* CollectionNormalCell.swift in Sources */,
 				A688BE4A27C3B1BB00E26C35 /* AmuseViewModel.swift in Sources */,
+				A688BE6427C6243100E26C35 /* FunnyViewModel.swift in Sources */,
 				E4E93AB9262FFE7C00C7E877 /* MainViewController.swift in Sources */,
 				A688BE4827C3A46400E26C35 /* BaseAnchorViewController.swift in Sources */,
+				A688BE6627C72C7E00E26C35 /* BaseViewController.swift in Sources */,
 				E4E93ABD263001D000C7E877 /* HomeViewController.swift in Sources */,
 				A688BE4627C38FF700E26C35 /* BaseAnchorViewModel.swift in Sources */,
 				A64B387D27C0D754002C0089 /* GameViewModel.swift in Sources */,
@@ -679,6 +699,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
@@ -703,6 +724,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
